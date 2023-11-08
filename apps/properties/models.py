@@ -70,7 +70,7 @@ class Property(TimeStampedUUIDModel):
 
     def save(self, *args, **kwargs):
         self.title = str.title(self.title)
-        self.description = str.description(self.description)
+        self.description = str.capitalize(self.description)
         self.ref_code = "".join(random.choices(string.ascii_uppercase + string.digits,k=20))
         super(Property,self).save(*args,**kwargs)
 
@@ -91,4 +91,4 @@ class PropertyViews(TimeStampedUUIDModel):
     
     class Meta:
         verbose_name = "Total Views on Property"
-        verbose_name_plural = "Total Property Vies"
+        verbose_name_plural = "Total Property Views"
